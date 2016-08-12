@@ -80,4 +80,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.time_zone = "UTC"
+
+  config.action_mailer.delivery_method = :postmark
+  config.action_mailer.postmark_settings = { api_key: "e88b4165-7ae0-4442-a4c4-5210a36a3af3" }
 end
