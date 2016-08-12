@@ -17,6 +17,7 @@ gem "settingslogic", "2.0.9"
 gem "sidekiq", "4.1.4"
 gem "sinatra", github: "sinatra/sinatra"
 gem "uglifier", "3.0.1"
+gem "thor-rails", "0.0.1"
 
 group :production, :staging do
   gem "puma", "3.6.0"
@@ -41,10 +42,11 @@ end
 
 group :development do
   gem "web-console", "3.3.1"
+  gem "listen", "3.1.5"
 end
 
 group :test do
-  gem "airborne", "0.2.5" # 0.2.6 has activesupport 5.0 conflict
+  gem "airborne", "0.2.5" # 0.2.6 activesupport conflict
   gem "capybara", "2.7.1"
   gem "database_cleaner", "1.5.3"
   gem "rspec-instafail", "1.0.0"
