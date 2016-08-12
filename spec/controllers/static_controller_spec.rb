@@ -1,17 +1,12 @@
 require "rails_helper"
 
 describe StaticController, type: :controller do
-  describe "#show" do
+  describe "#home" do
     render_views
 
-    it "receives a success status for the show page" do
-      get :show
+    it "receives a success status for the home page" do
+      get :home
       expect(response).to have_http_status(:success)
-    end
-
-    it "renders the correct view template" do
-      get :show
-      expect(response).to render_template(:application)
     end
   end
 end
