@@ -2,8 +2,8 @@ require "rails_helper"
 
 describe ApplicationHelper, type: :helper do
   describe "#copyright_notice" do
-    it "renders the current year in the Copyright notice" do
-      expect(copyright_notice).to eq "&copy; 2016 Access Cal"
+    it "renders the founding year in the Copyright notice" do
+      expect(copyright_notice).to eq "&copy; 2016 Simply Events"
     end
   end
 

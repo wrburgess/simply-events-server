@@ -4,11 +4,10 @@ module ApplicationHelper
   end
 
   def copyright_notice
-    "&copy; 2016 Access Cal"
+    "&copy; 2016 Simply Events"
   end
 
   def number_with_leading(integer)
     integer.to_s.rjust(2, "0")
   end
 end
-
