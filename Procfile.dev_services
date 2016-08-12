@@ -1,2 +1,2 @@
 redis: redis-server
-default_worker: bundle exec sidekiq -q default -q devise_email
+worker: bundle exec sidekiq -q default

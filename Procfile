@@ -1,3 +1,3 @@
 web: bundle exec puma -C config/puma.rb
-default_worker: bundle exec sidekiq -q default -q devise_email
+worker: bundle exec sidekiq -q default
 release: bundle exec rake app:release
