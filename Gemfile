@@ -23,7 +23,6 @@ gem "uglifier", "3.0.1"
 
 group :production, :staging do
   gem "puma", "3.6.0"
-  gem "rails_12factor", "0.0.3"
 end
 
 group :staging, :development do
