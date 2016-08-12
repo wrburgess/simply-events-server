@@ -1,0 +1,17 @@
+machine:
+  services:
+    - redis
+
+test:
+  override:
+    - bundle exec rspec --format RspecJunitFormatter --out $CIRCLE_TEST_REPORTS/rspec.xml:
+        parallel: true
+        files:
+          - spec/**/*_spec.rb
+  post:
+    - bundle exec rubocop
+deployment:
+  staging:
+    branch: master
+    commands:
+      - git push git@heroku.com:simply-events-server-staging.git $CIRCLE_SHA1:master
