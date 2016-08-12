@@ -19,11 +19,11 @@ describe Api::V1::EventsController, type: :controller do
 
       describe "#create" do
         it "creates and returns an event instance" do
-          post :create,
-          params: {
-            name: event.name,
-            description: event.description
-          }
+          post  :create,
+                params: {
+                  name: event.name,
+                  description: event.description
+                }
           expect_json("data", attributes: { name: event.name, description: event.description })
           expect_json_types("data", id: :string)
           expect_json_types("data", attributes: { name: :string })
@@ -36,11 +36,11 @@ describe Api::V1::EventsController, type: :controller do
         it "creates a new instance" do
           event.touch
           expect do
-            post :create,
-            params: {
-              name: event.name,
-              description: event.description
-            }
+            post  :create,
+                  params: {
+                    name: event.name,
+                    description: event.description
+                  }
           end.to change(Event, :count).by(1)
         end
       end

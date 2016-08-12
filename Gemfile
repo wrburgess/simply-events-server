@@ -4,6 +4,7 @@ ruby "2.3.1"
 gem "rails", "5.0.0.1"
 
 gem "active_model_serializers", "0.10.2"
+gem "faker", "1.6.6"
 gem "figaro", "1.1.1"
 gem "jquery-rails", "4.1.1"
 gem "paper_trail", "5.2.0"
@@ -34,7 +35,6 @@ group :development, :test do
   gem "bundler-audit", "0.5.0", require: false
   gem "byebug", "9.0.5"
   gem "factory_girl_rails", "4.7.0"
-  gem "faker", "1.6.6"
   gem "hakiri", "0.7.2", require: false
   gem "pry-rails", "0.3.4"
   gem "pry-remote", "0.1.8"
