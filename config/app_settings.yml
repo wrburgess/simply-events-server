@@ -1,0 +1,37 @@
+defaults: &defaults
+  app_name: "Simply Events Server"
+  app_repo_name: "simply-events-server"
+  app_server: "Development"
+  default_url: "http://localhost:3000"
+  aws_s3_region: "x"
+  aws_s3_assets_url: "https://xxxxxxxxx.cloudfront.net/assets"
+  google_analytics_tracking_id: "UA-54471373-x"
+  no_reply_email: "no-reply@example.com"
+  support_email: "support@example.com"
+  errors_email: "errors@example.com"
+  feedback_email: "feedback@example.com"
+  transactions_email: "transactions@example.com"
+  redis_url: ENV["REDIS_URL"]
+
+test:
+  <<: *defaults
+  app_server: "Test"
+  google_analytics_tracking_id: "UA-54471373-x"
+  redis_url: "redis://localhost:6379"
+
+development:
+  <<: *defaults
+  app_server: "Development"
+  google_analytics_tracking_id: "UA-54471373-x"
+
+staging:
+  <<: *defaults
+  app_server: "Staging"
+  default_url: "https://simply-events-server-staging.herokuapp.com"
+  google_analytics_tracking_id: "UA-xxxxxx-x"
+
+production:
+  <<: *defaults
+  app_server: "Production"
+  default_url: "https://simply-events-server-prod.herokuapp.com"
+  google_analytics_tracking_id: "UA-xxxxxx-x"

@@ -1,7 +1,7 @@
 namespace :app do
   desc "Rebuild db with drop, create, migrate, test:prepare (dev and staging only)"
   task rebuild: :environment do
-    input = ''
+    input = ""
     STDOUT.puts "Drop, recreate, and migrate app database? y[es] or n[o]"
     input = STDIN.gets.chomp
     if input == "y" && (Rails.env.development? || Rails.env.staging?)

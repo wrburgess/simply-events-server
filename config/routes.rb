@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # require "sidekiq/web"
+  # authenticate :user, lambda { |u| u.admin? } do
+  #   mount Sidekiq::Web => "/sidekiq"
+  #   mount PgHero::Engine, at: "pghero"
+  # end
+
+  # root to: "static#home"
+
+  # namespace :api, defaults: { format: "json" } do
+  #   namespace :v1 do
+  #     resources :users
+  #   end
+  # end
 end

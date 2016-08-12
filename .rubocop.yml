@@ -38,3 +38,8 @@ RSpec/ExampleLength:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/BlockComments:
+  Enabled: true
+  Exclude:
+    - "spec/spec_helper.rb"

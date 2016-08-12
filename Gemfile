@@ -4,6 +4,7 @@ ruby "2.3.1"
 gem "rails", "5.0.0.1"
 
 gem "active_model_serializers", "0.10.2"
+gem "figaro", "1.1.1"
 gem "jquery-rails", "4.1.1"
 gem "paper_trail", "5.2.0"
 gem "pg", "0.18.4"
@@ -16,8 +17,8 @@ gem "sass-rails", "5.0.6"
 gem "settingslogic", "2.0.9"
 gem "sidekiq", "4.1.4"
 gem "sinatra", github: "sinatra/sinatra"
-gem "uglifier", "3.0.1"
 gem "thor-rails", "0.0.1"
+gem "uglifier", "3.0.1"
 
 group :production, :staging do
   gem "puma", "3.6.0"
@@ -41,8 +42,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console", "3.3.1"
   gem "listen", "3.1.5"
+  gem "web-console", "3.3.1"
 end
 
 group :test do
