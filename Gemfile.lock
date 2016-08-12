@@ -327,8 +327,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     terminal-table (1.6.0)
-    test_after_commit (1.1.0)
-      activerecord (>= 3.2)
     thor (0.19.1)
     thor-rails (0.0.1)
       rails
@@ -397,7 +395,6 @@ DEPENDENCIES
   shoulda-matchers (= 3.1.1)
   sidekiq (= 4.1.4)
   sinatra!
-  test_after_commit (= 1.1.0)
   thor-rails (= 0.0.1)
   uglifier (= 3.0.1)
   web-console (= 3.3.1)

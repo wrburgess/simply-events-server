@@ -57,5 +57,4 @@ group :test do
   gem "rspec_junit_formatter", "0.2.3"
   gem "rubocop-rspec", "1.6.0"
   gem "shoulda-matchers", "3.1.1"
-  gem "test_after_commit", "1.1.0"
 end
