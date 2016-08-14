@@ -35,10 +35,10 @@ describe Api::V1::EventsController, type: :controller do
 
     context "authorized" do
       let(:event) { FactoryGirl.create :event }
+      let(:user) { FactoryGirl.create :user }
 
       before do
-        @user = FactoryGirl.create :user
-        authenticate_for_specs(@user)
+        authenticate_for_specs(user)
       end
 
       describe "#create" do
