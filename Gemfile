@@ -4,6 +4,7 @@ ruby "2.3.1"
 gem "rails", "5.0.0.1"
 
 gem "active_model_serializers", "0.10.2"
+gem "bcrypt", "3.1.11"
 gem "faker", "1.6.6"
 gem "figaro", "1.1.1"
 gem "jquery-rails", "4.1.1"
