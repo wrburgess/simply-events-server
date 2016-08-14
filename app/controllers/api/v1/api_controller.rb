@@ -8,16 +8,14 @@ module Api
       rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
       def authenticated?
-        !!current_user
+        !current_user.nil?
       end
 
       def current_user
-        if auth_present?
-          user = User.find(auth["user"])
-          if user
-            @current_user ||= user
-          end
-        end
+        return unless auth_present?
+        user = User.find(auth["user"])
+        return unless user
+        @current_user ||= user
       end
 
       def authenticate
@@ -35,7 +33,7 @@ module Api
       end
 
       def auth_present?
-        !!request.env.fetch("HTTP_AUTHORIZATION", "").scan(/Bearer/).flatten.first
+        !request.env.fetch("HTTP_AUTHORIZATION", "").scan(/Bearer/).flatten.first.nil?
       end
 
       def record_not_found
