@@ -30,7 +30,7 @@ group :staging, :development do
 end
 
 group :development, :test do
-  gem "brakeman", "3.3.3", require: false
+  gem "brakeman", "3.3.5", require: false
   gem "bundler-audit", "0.5.0", require: false
   gem "byebug", "9.0.5"
   gem "factory_girl_rails", "4.7.0"

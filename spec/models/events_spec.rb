@@ -1,8 +1,6 @@
 require "rails_helper"
 
 describe Event, type: :model do
-  let(:event) { FactoryGirl.create :event }
-
   it "has a valid factory" do
     expect(FactoryGirl.create(:event)).to be_valid
   end
