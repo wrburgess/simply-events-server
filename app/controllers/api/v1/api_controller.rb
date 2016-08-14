@@ -1,11 +1,42 @@
 module Api
   module V1
     class ApiController < ApplicationController
+      before_action :authenticate
+
       rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
       rescue_from ActionController::ParameterMissing, with: :paramter_missing
       rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
+      def authenticated?
+        !!current_user
+      end
+
+      def current_user
+        if auth_present?
+          user = User.find(auth["user"])
+          if user
+            @current_user ||= user
+          end
+        end
+      end
+
+      def authenticate
+        render json: { error: unauthorized }, status: 404 unless authenticated?
+      end
+
       private
+
+      def token
+        request.env["HTTP_AUTHORIZATION"].scan(/Bearer(.*)$/).flatten.last
+      end
+
+      def auth
+        Auth.decode(token)
+      end
+
+      def auth_present?
+        !!request.env.fetch("HTTP_AUTHORIZATION", "").scan(/Bearer/).flatten.first
+      end
 
       def record_not_found
         render json: {
