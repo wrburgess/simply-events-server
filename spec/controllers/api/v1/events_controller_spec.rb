@@ -2,20 +2,44 @@ require "rails_helper"
 
 describe Api::V1::EventsController, type: :controller do
   describe "accepting requests" do
-    # context "unauthorized" do
-    #   before do
-    #     request.env["HTTP_AUTHORIZATION"] = ActionController::HttpAuthentication::Token.encode_credentials("1234")
-    #   end
+    context "unauthorized" do
+      it "returns an unauthorized status code if the token is not present" do
+        event = FactoryGirl.create :event
+        get :show, params: { id: event.id }
+        expect_status :forbidden
+      end
 
-    #   it "returns an unauthorized status code" do
-    #     event = FactoryGirl.create :event
-    #     get :show, id: event.id
-    #     expect_status :forbidden
-    #   end
-    # end
+      it "returns an unauthorized status code if the token is invalid" do
+        token = Auth.issue(some_fake_key: 1)
+        request.env["HTTP_AUTHORIZATION"] = "Bearer #{token}"
+        event = FactoryGirl.create :event
+        get :show, params: { id: event.id }
+        expect_status :forbidden
+      end
+
+      it "returns an unauthorized status code if the user is not valid" do
+        token = Auth.issue(user_id: 1)
+        request.env["HTTP_AUTHORIZATION"] = "Bearer #{token}"
+        event = FactoryGirl.create :event
+        get :show, params: { id: event.id }
+        expect_status :forbidden
+      end
+
+      it "returns an unauthorized status code if the token lacks the jwt protocol" do
+        request.env["HTTP_AUTHORIZATION"] = ActionController::HttpAuthentication::Token.encode_credentials("1234").to_s
+        event = FactoryGirl.create :event
+        get :show, params: { id: event.id }
+        expect_status :forbidden
+      end
+    end
 
     context "authorized" do
       let(:event) { FactoryGirl.create :event }
+      let(:user) { FactoryGirl.create :user }
+
+      before do
+        authenticate_for_specs(user)
+      end
 
       describe "#create" do
         it "creates and returns an event instance" do

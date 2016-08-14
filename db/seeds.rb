@@ -1,5 +1,5 @@
 puts "BEGIN: Create Admin"
-User.create(email: "admin@example.com", first_name: "John", last_name: "Doe", password: "password", password_confirmation: "password")
+User.create(email: "admin@example.com", first_name: "John", last_name: "Doe", password: "{,xF24V^tbupd6yjW*X,492[NRdhXJLz}PbE29]$JPn34cVN)o", password_confirmation: "{,xF24V^tbupd6yjW*X,492[NRdhXJLz}PbE29]$JPn34cVN)o")
 puts "END:   Create Admin"
 
 puts "BEGIN: Creating Users"

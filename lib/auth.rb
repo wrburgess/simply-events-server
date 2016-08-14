@@ -8,6 +8,7 @@ class Auth
   end
 
   def self.decode(token)
+    token.strip!
     JWT.decode(token, auth_secret, true, algorithm: ALGORITHM).first
   end
 

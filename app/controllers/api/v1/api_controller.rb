@@ -13,13 +13,18 @@ module Api
 
       def current_user
         return unless auth_present?
-        user = User.find(auth["user"])
-        return unless user
+
+        begin
+          user = User.find(auth["user_id"])
+        rescue ActiveRecord::RecordNotFound
+          return
+        end
+
         @current_user ||= user
       end
 
       def authenticate
-        render json: { error: unauthorized }, status: 404 unless authenticated?
+        render json: { error: :unauthorized }, status: :forbidden unless authenticated?
       end
 
       private
