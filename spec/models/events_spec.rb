@@ -8,4 +8,7 @@ describe Event, type: :model do
   it "is invalid without a name" do
     expect(FactoryGirl.build(:event, name: nil)).not_to be_valid
   end
+
+  it { is_expected.to have_many :favorite_users }
+  it { is_expected.to have_many :favorites }
 end

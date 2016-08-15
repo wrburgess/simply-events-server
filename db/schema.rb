@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20160812040341) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "favorites", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "event_id"
+    t.uuid     "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email"
     t.string   "first_name"

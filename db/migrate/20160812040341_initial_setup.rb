@@ -13,5 +13,11 @@ class InitialSetup < ActiveRecord::Migration[5.0]
       t.string :password_digest
       t.timestamps null: false
     end
+
+    create_table :favorites, id: :uuid, force: true do |t|
+      t.uuid       :event_id
+      t.uuid       :user_id
+      t.timestamps null: false
+    end
   end
 end

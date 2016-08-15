@@ -3,6 +3,8 @@ class UserSerializer < ActiveModel::Serializer
     :id,
     :email,
     :first_name,
-    :last_name
+    :last_name,
+    :created_at,
+    :updated_at
   )
 end
