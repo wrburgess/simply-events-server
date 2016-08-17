@@ -24,3 +24,10 @@ events = []
 end
 Event.create(events)
 puts "END:   Creating Events"
+
+puts "BEGIN: Creating Favorites"
+User.all.each do |user|
+  events = Event.order("RANDOM()").first((1..10).to_a.sample)
+  events.each { |event| user.favorite_events << event }
+end
+puts "END:   Creating Favorites"
