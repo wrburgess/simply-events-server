@@ -26,10 +26,6 @@ group :production, :staging do
   gem "puma", "3.6.0"
 end
 
-group :staging, :development do
-  gem "rails_db", "1.3.3"
-end
-
 group :development, :test do
   gem "brakeman", "3.3.5", require: false
   gem "bundler-audit", "0.5.0", require: false
@@ -44,11 +40,12 @@ end
 group :development do
   gem "listen", "3.1.5"
   gem "web-console", "3.3.1"
+  gem "rails_db", "1.3.3"
 end
 
 group :test do
   gem "airborne", "0.2.5" # 0.2.6 activesupport conflict
-  gem "capybara", "2.7.1"
+  gem "capybara", "2.8.0"
   gem "database_cleaner", "1.5.3"
   gem "rspec-instafail", "1.0.0"
   gem "rspec-json_expectations", "1.4.0"
