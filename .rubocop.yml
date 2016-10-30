@@ -39,6 +39,12 @@ RSpec/ExampleLength:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/VariableNumber:
+  EnforcedStyle: "snake_case"
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Style/BlockComments:
   Enabled: true
   Exclude:
